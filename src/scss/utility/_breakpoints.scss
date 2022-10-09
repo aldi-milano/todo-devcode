@@ -1,0 +1,13 @@
+@use './function' as f;
+
+$spaces: (
+  'tablet': f.rem(700),
+  'desktop': f.rem(900),
+  'desktop-large': f.rem(1440),
+);
+
+@mixin breakpoint($space) {
+  @media (min-width: map-get($spaces, $space)) {
+    @content;
+  }
+}

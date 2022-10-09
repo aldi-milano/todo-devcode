@@ -1,0 +1,7 @@
+@use '../scss/utility' as *;
+@use '../scss/global' as *;
+
+.title__container {
+  @include flex();
+  gap: rem(23);
+}

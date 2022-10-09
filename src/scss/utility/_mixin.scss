@@ -1,0 +1,19 @@
+@use './function' as f;
+
+@mixin flex($jus: center, $alg: center) {
+  display: flex;
+  justify-content: $jus;
+  align-items: $alg;
+}
+
+$units: (
+  'mobile': f.rem(22),
+  'tablet': f.rem(24),
+  'desktop': f.rem(26),
+);
+
+@mixin icon($unit) {
+  font-size: map-get($units, $unit);
+  cursor: pointer;
+  color: #000;
+}

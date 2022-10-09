@@ -1,0 +1,34 @@
+@forward 'global';
+@use '../scss/utility' as u;
+
+.colored-toast.swal2-icon-success {
+  background-color: #2f9e44 !important;
+  color: #fff;
+  margin-bottom: u.rem(60);
+
+  @include u.breakpoint(tablet) {
+    margin-bottom: u.rem(100);
+    font-size: u.rem(18);
+    width: u.rem(30);
+    padding: u.rem(16);
+  }
+
+  @include u.breakpoint(desktop) {
+    margin-bottom: u.rem(10);
+  }
+}
+
+@include u.breakpoint(desktop) {
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    width: 100%;
+  }
+}
+
+// .nav {
+//   position: fixed;
+//   bottom: 0;
+//   z-index: 99;
+// }

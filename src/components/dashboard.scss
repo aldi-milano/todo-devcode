@@ -1,0 +1,164 @@
+@use '../scss/utility' as *;
+@use '../scss/global' as *;
+
+.container {
+  max-width: rem(1000);
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+
+  .modal-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    display: none;
+    transition: all 0.3s ease-in-out;
+
+    .alert {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: rem(355);
+      width: rem(490);
+      background-color: #fff;
+      border-radius: 12px;
+      @include flex();
+      flex-direction: column;
+
+      .icon-delete {
+        margin-bottom: rem(34);
+      }
+
+      p {
+        font-size: rem(18);
+        line-height: 27px;
+
+        span {
+          font-weight: 700;
+        }
+      }
+
+      .button__container {
+        margin-top: rem(46);
+        @include flex();
+        gap: rem(20);
+
+        .delete {
+          background-color: $alert;
+          font-size: rem(18);
+          padding: rem(13) rem(14);
+          width: rem(150);
+          height: rem(54);
+          border-radius: 45px;
+        }
+
+        .cancel {
+          background-color: $grey;
+          color: #000;
+          font-size: rem(18);
+          padding: rem(13) rem(14);
+          width: rem(150);
+          height: rem(54);
+          border-radius: 45px;
+        }
+      }
+    }
+
+    &.active {
+      display: block;
+    }
+  }
+}
+
+.header {
+  background-color: $primary;
+  height: rem(105);
+  color: #fff;
+  @include flex(flex-start, center);
+
+  h1 {
+    font-size: rem(24);
+    font-weight: 700;
+  }
+}
+
+main {
+  background-color: $background;
+  height: 110vh;
+
+  .todo-header {
+    padding-top: rem(43);
+    padding-bottom: rem(59);
+    @include flex(space-between, center);
+
+    h2 {
+      font-size: rem(36);
+      font-weight: 700;
+    }
+
+    .btn-tambah {
+      background-color: $primary;
+      width: rem(170);
+      height: (54);
+      font-size: rem(18);
+      font-weight: 600;
+      padding: 13px 21px 13px 14px;
+      border-radius: 45px;
+    }
+  }
+
+  .main-content {
+    &__vector-empty {
+      width: 100%;
+      @include flex(center, flex-start);
+
+      img {
+        width: 55%;
+      }
+
+      &.fill {
+        display: none;
+      }
+    }
+
+    .activity__container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      row-gap: rem(26);
+
+      .activity__card {
+        width: rem(235);
+        height: rem(234);
+        border-radius: 12px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        flex-direction: column;
+        padding: rem(22);
+        justify-self: center;
+        cursor: pointer;
+
+        .activity-body {
+          height: rem(160);
+          h3 {
+            font-size: rem(18);
+            font-weight: 700;
+          }
+        }
+
+        p {
+          font-size: rem(14);
+          font-weight: 500;
+          color: $grey-font;
+          @include flex(space-between, center);
+          width: 100%;
+        }
+      }
+    }
+  }
+}
